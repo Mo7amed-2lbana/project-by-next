@@ -1,0 +1,10 @@
+.card {
+    button{
+        transition: 1s;
+    }    
+    &:hover {
+       button{
+        transform: translatey(0);
+       }
+    }
+}
