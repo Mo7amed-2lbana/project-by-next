@@ -1,4 +1,5 @@
 // Importing the Card component to display each product
+import { Suspense } from "react";
 import Card from "./(components)/card/Card";
 
 // Importing the heading component for the page title
@@ -25,13 +26,14 @@ export default async function Home() {
         <div className="grid grid-cols-5 gap-6">
           {products.map((data) => (
             // Rendering each product inside a Card component
-            <Card
-              key={data.id}
-              id={data.id}
-              image={data.image}
-              title={data.title}
-              discription={data.description}
-            />
+            <Suspense key={data.id} fallback={<div>Loading...</div>}>
+              <Card
+                id={data.id}
+                image={data.image}
+                title={data.title}
+                discription={data.description}
+              />
+            </Suspense>
           ))}
         </div>
       </div>
